@@ -148,6 +148,9 @@ Steps :
 - Create Visualisations manually (using ```lens```)
 - Create Visualisations manually (using ```classic``` method)
 
+The ```classic``` visualisation method - basically following a structured approach where you need to select the index and the chart type first. 
+The ```lens``` visualisation approach - allows you to change the chart type and index at any point during the creation of the visualization. 
+
 </p>
 </details>
 
@@ -310,9 +313,9 @@ Steps :
 
 
 
-### Lesson 3. Simple Dashboard 
+### Lesson 4. Simple Dashboard 
 
-[Lesson 3. Video](https://www.youtube.com/embed/ps_tO2Tuwew)
+[Lesson 4. Video](https://www.youtube.com/embed/ps_tO2Tuwew)
 
 <details><summary>Objectives</summary>
 <p>
@@ -401,129 +404,3 @@ Steps :
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<p>
-
-
-
-</p>
-</details>
-
-
-
-
-
-
-
-
-
-
-
-- Create visualizations using ```classic``` method - basically following a structured approach where you need to select the index and the chart type first. 
-- Create visualizations using ```lens``` - which allows you to change the chart type and index at any point during the creation of the visualization. 
-
-library of charts. 
-- Create Dashboard with ```classic``` visulisation 
-
-
-
-
-Video 2. 
-
-#### Searching Data:
-  - Define an index pattern with or without a Time Filter field
-  - Set the time filter to a specified date or time range
-  - Use the Kibana Query Language (KQL) in the search bar to display only documents that match a specified criteria
-  - Create and pin a filter based on a search criteria
-  - Apply a search criteria to a visualization or dashboard
-
-#### Visualizing Data:
-  - Create a Metric or Gauge visualization that displays a value satisfying a given criteria
-  - Create a Lens visualization that satisfies a given criteria
-  - Create an Area, Line, Pie, Vertical Bar or Horizontal Bar visualization that satisfies a given criteria
-  - Split a visualization using sub-bucket aggregations
-  - Create a visualization that computes a moving average, derivative, or serial diff aggregation
-  - Customize the format and colors of a line chart or bar chart
-  - Using geo data, create an Elastic map that satisfies a given criteria
-  - Create a visualization using the Time Series Visual Builder (TSVB) that satisfies a given set of criteria
-  - Define multiple line or bar charts on a single TSVB visualization
-  - Create a chart that displays a filter ratio, moving average, or mathematical computation of two fields
-  - Define a metric, gauge, table or Top N visualization in TSVB
-  - Create a Tag Cloud visualization on a keyword field of an index
-  - Create a Data Table visualization that satisfies a given criteria
-  - Create a Markdown visualization
-  - Define and use an Option List or Range Slider control
-  - Create a Dashboard that consists of a collection of visualizations
-
-#### Analyzing Data:
-  - Answer questions about a given dataset using search and visualizations
-  - Use visualizations to find anomalies in a dataset
-  - Define a single metric, multi-metric, or population Machine Learning job
-  - Define and use a scripted field for an index
-  - Define and use a Space in Kibana
-</p>
-</details>
-
-
-
-
-
-
-
-
-
-
-# swagger-4-es
-
-`swagger-4-es` provides a Swagger UI page for the key elasticsearch (and Opensearch) endpoints. It's aimed at being a training resource to engineers starting off with 
-elasticsearch. You may also consider customising the openapi specification (additional endpoints and notes) to become a training resource specific to your organisation.   
-
-See [https://www.swarmee.net/swagger 4 es](https://www.swarmee.net/swagger%204%20es/) for further details. 
-
-### Screenshot
-[![Swagger UI Screenshot](./docs/Swagger-UI-Screenshot.png)](./docs/Swagger-UI-Screenshot.png)
-
-### Local Setup
-FolloThe following steps run you through running ```swagger-4-es``` swagger UI locally.
-
-#### Prerequisite
-
-The following software and configuration is required on your computer to boot up the containers:
-
-- `docker`. See these [docs](https://docs.docker.com/get-docker/) for instructions.
-- `docker-compose`. See these [docs](https://docs.docker.com/compose/install/) for instructions.
-- Increase the `mmap` count on linux systems. See these [docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) for instructions.
-
-
-#### Usage
-
-```shell
-docker-compose up
-```
-
-Then open [https://localhost/index.html](https://localhost/index.html) to see the Swagger UI page. The nginx container is setup to forward all to elasticsearch except for URLs ending in ```.json``` or ```.html```. 
-
-**Noting**:
-
-- The Elasticsearch instance will take a little while to boot up - at least 15 seconds (you should see the messages scrolling through on your terminal as it starts up).
-- The container starts a nginx reverse proxy to host the Swagger UI page, it generates a self signed certificate so you will need to accept the warning message in your browser. I.e. it is expected to see a `Warning: Potential Security Risk Ahead` message when you open the Swagger UI link (Click Accept Risk and Proceed).
-- No authentication is required for the local instance. 
-
-The local instance is also avaliable directly at [http://localhost:9200](http://localhost:9200)
-
-
-
-
-
-
-"text", "fields": { "keyword" : { "type" : "keyword"}}
