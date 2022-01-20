@@ -56,7 +56,7 @@ You will need an Elasticsearch and Kibana instance to run through this training.
 
 #### Lesson 1. Kibana Data View and Discover Tab
 
-[YouTube Video](https://www.youtube.com/embed/ps_tO2Tuwew)
+[Lession 1. Video](https://www.youtube.com/embed/ps_tO2Tuwew)
 
 <details><summary>Objectives</summary>
 <p>
@@ -137,44 +137,40 @@ Steps :
 
 
 
+#### Lesson 1. Simple Visualistions 
 
-### Lesson 2. Simple Visualistions  
-Dataset: Fastest Humans Over 100m
 
-Objectives :
+
+<details><summary>Objectives</summary>
+<p>
+
 - Load data into elasticsearch through kibana.
 - Create Visualisations from Discover Tab (using ```lens```)
 - Create Visualisations manually (using ```lens```)
 - Create Visualisations manually (using ```classic``` method)
 
+</p>
+</details>
 
-Steps : 
+<details><summary>Steps</summary>
+<p>
+
 - Download dataset to your computer - ```2-fastest-humans-over-100m.ndjson``` file from the datasets folder in this repo. 
 - Login to Kibana and click the ```Upload a file``` link on the home page. 
 - Upload dataset into Kibana. The wizard will guide you through creating the ```mapping``` and ```data view``` (replace the default mapping with mapping provided below). 
 - Open the dataset in the discover tab - select fields on the left to automatically create visuslisations in ```lens```. Note ```lens``` allows you to change the chart type and index at any point during the creation of the visualization. 
 
-
-note the impact of the data view changes we made - i.e. additional fields.  
-- Format the display in the discovery tab. Noting that the rows can be expanded to see all the details. 
-- Save the "search" - so it can be revisited later.  
-- Perform following searches kql (Kibana's query language) and Lucene query language:
-   - Simple text search (J. K. Rowling) - noting that search terms are ```OR```ed together. Can be ```AND```ed together. 
-   - Field Specific search (Book : wild). 
-   - Phase Search  (Author : "Stephen Hawking")
-   - Boolean operator ( yearFirstPublished : 1988 AND Book : (The AND Alchemist) )   
-   - Range Search with Boolean operator (yearFirstPublished >= 1980 and yearFirstPublished < 1991)
-   - Lucene syntax Search for fuzzy matches (Woma~1). Edit distance of 1.    
-   - Lucene syntax Search for fuzzy phase matches ("The Woman"~1). Word order distance of 1. 
-- Create a simple filter and see how it can be turned on/off and inverted ("OriginalLanguage": "Norwegian" ). Note that the filters are actually generating elastic DSL queries. 
-- Review the inspect tab which provides details of the requests and responses from elasticsearch. 
+</p>
+</details>
 
 
 
-<details><summary>Fastest Humans Over 100m Data Mapping</summary>
+
+
+<details><summary>Top Sellings Books Data Mapping</summary>
 <p>
 
-
+```` JSON
 {
   "properties": {
     "athlete": {
@@ -225,6 +221,37 @@ note the impact of the data view changes we made - i.e. additional fields.
     }
   }
 }
+````
+</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+
+
+
 </p>
 </details>
 
