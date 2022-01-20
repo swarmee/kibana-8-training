@@ -56,6 +56,7 @@ You will need an Elasticsearch and Kibana instance to run through this training.
 
 #### Lesson 1. Kibana Data View and Discover Tab
 Dataset: Top Selling Books of All Time
+
 [Youtube Video](www.youtube.com). 
 
 <details><summary>Objectives</summary>
@@ -92,6 +93,9 @@ Steps :
    - Lucene syntax Search for fuzzy phase matches ("The Woman"~1). Word order distance of 1. 
 - Create a simple filter and see how it can be turned on/off and inverted ("OriginalLanguage": "Norwegian" ). Note that the filters are actually generating elastic DSL queries. 
 - Review the inspect tab which provides details of the requests and responses from elasticsearch. 
+
+</p>
+</details>
 
 
 <details><summary>Top Sellings Books Data Mapping</summary>
@@ -130,8 +134,7 @@ Steps :
 </p>
 </details>
 
-</p>
-</details>
+
 
 
 ### Lesson 2. Simple Visualistions  
