@@ -56,7 +56,7 @@ You will need an Elasticsearch and Kibana instance to run through this training.
 
 ### Lesson 1. Kibana Data View and Discover Tab
 
-[Lesson 1. Video](https://www.youtube.com/embed/ps_tO2Tuwew)
+[Lesson 1. Video](https://youtu.be/3Rh6gBkuyNQ)
 
 <details><summary>Objectives</summary>
 <p>
@@ -149,7 +149,7 @@ Steps :
 - Create Visualisations manually (using ```classic``` method)
 
 The ```classic``` visualisation method - basically following a structured approach where you need to select the index and the chart type first. 
-The ```lens``` visualisation approach - allows you to change the chart type and index at any point during the creation of the visualization. 
+The ```lens``` visualisation approach - allows you to change the chart type and index at any point during the creation of the visualisation. 
 
 </p>
 </details>
@@ -160,7 +160,7 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
 - Download dataset to your computer - ```2 - world-tallest-towers.ndjson``` file from the datasets folder in this repo. 
 - Login to Kibana and click the ```Upload a file``` link on the home page. 
 - Upload dataset into Kibana. The wizard will guide you through creating the ```mapping``` and ```data view``` (replace the default mapping with mapping provided below). 
-- Open the dataset in the discover tab - select the ```city.keyword``` fields on the left to automatically create visuslisations in ```lens```. Note ```lens``` allows you to change the chart type and index at any point during the creation of the visualization. 
+- Open the dataset in the discover tab - select the ```city.keyword``` fields on the left to automatically create visualisation in ```lens```. Note ```lens``` allows you to change the chart type and index at any point during the creation of the visualisation. 
 - Create a Visualisations manually using ```lens``` and the ```classic``` method. 
 
 </p>
