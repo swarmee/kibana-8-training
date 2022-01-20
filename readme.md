@@ -62,7 +62,7 @@ You will need an Elasticsearch and Kibana instance to run through this training.
 <p>
 
 - Load data into elasticsearch through kibana.
-- Modify the default index ```data view``` (new name for index template). 
+- Modify the default ```data view``` (new name for index template). 
 - Format data display using the discovery tab.  
 - Perform various serarches.  
 
