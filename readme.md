@@ -1,8 +1,6 @@
 # kibana-8-training
 
-Kibana 8 Training - based on Elastic Certified Analyst Exam Syllabus
-
-I have used the ```Elastic Certified Analyst Exam Prep``` syllabus as the basis for the training ([link](https://www.elastic.co/training/elastic-certified-analyst-exam)). So running through the videoes should place you very well to complete this certification. 
+This Kibana 8 training is based on Elastic Certified Analyst Exam [syllabus](https://www.elastic.co/training/elastic-certified-analyst-exam)). So running through these lessons should place you very well to complete this certification. 
 
 The basis of the training is pulled from the [elastic.co](https://www.elastic.co) website (so all the rights and praise goes to them). There is also a sprinkle of my own experience in the training. The sample data used comes straight from Wikipedia.  
 
