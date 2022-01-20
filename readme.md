@@ -55,22 +55,8 @@ To be fully prepared for the Elastic Certified Analyst exam, candidates should b
 You will need an Elasticsearch and Kibana instance to run through this training. I have written up some instructions on how to set one up [here](https://www.swarmee.net/swagger%204%20es/elasticsearch-cloud-instance-setup/)
 
 #### Lesson 1. Kibana Data View and Discover Tab
-Dataset: Top Selling Books of All Time
 
-###### YouTube Video
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ps_tO2Tuwew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-[![Alt text](https://www.youtube.com/embed/ps_tO2Tuwew)](https://www.youtube.com/embed/ps_tO2Tuwew)
-
-<details><summary>Youtube Video</summary>
-<p>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ps_tO2Tuwew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-</p>
-</details>
-
+[YouTube Video](https://www.youtube.com/embed/ps_tO2Tuwew)
 
 <details><summary>Objectives</summary>
 <p>
