@@ -110,6 +110,7 @@ Steps :
 <details><summary>Top Sellings Books Data Mapping</summary>
 <p>
 
+```` JSON
 {
   "properties": {
     "Author": {
@@ -140,6 +141,7 @@ Steps :
     }
   }
 }
+````
 </p>
 </details>
 
