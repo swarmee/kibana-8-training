@@ -54,9 +54,9 @@ To be fully prepared for the Elastic Certified Analyst exam, candidates should b
 
 You will need an Elasticsearch and Kibana instance to run through this training. I have written up some instructions on how to set one up [here](https://www.swarmee.net/swagger%204%20es/elasticsearch-cloud-instance-setup/)
 
-#### Lesson 1. Kibana Data View and Discover Tab
+### Lesson 1. Kibana Data View and Discover Tab
 
-[Lession 1. Video](https://www.youtube.com/embed/ps_tO2Tuwew)
+[Lesson 1. Video](https://www.youtube.com/embed/ps_tO2Tuwew)
 
 <details><summary>Objectives</summary>
 <p>
@@ -136,10 +136,9 @@ Steps :
 </details>
 
 
+### Lesson 2. Simple Visualistions (lens and classic methods)
 
-#### Lesson 1. Simple Visualistions 
-
-
+[Lesson 2. Video](https://www.youtube.com/embed/ps_tO2Tuwew)
 
 <details><summary>Objectives</summary>
 <p>
@@ -155,19 +154,102 @@ Steps :
 <details><summary>Steps</summary>
 <p>
 
-- Download dataset to your computer - ```2-fastest-humans-over-100m.ndjson``` file from the datasets folder in this repo. 
+- Download dataset to your computer - ```2 - world-tallest-towers.ndjson``` file from the datasets folder in this repo. 
 - Login to Kibana and click the ```Upload a file``` link on the home page. 
 - Upload dataset into Kibana. The wizard will guide you through creating the ```mapping``` and ```data view``` (replace the default mapping with mapping provided below). 
-- Open the dataset in the discover tab - select fields on the left to automatically create visuslisations in ```lens```. Note ```lens``` allows you to change the chart type and index at any point during the creation of the visualization. 
+- Open the dataset in the discover tab - select the ```city.keyword``` fields on the left to automatically create visuslisations in ```lens```. Note ```lens``` allows you to change the chart type and index at any point during the creation of the visualization. 
+- Create a Visualisations manually using ```lens``` and the ```classic``` method. 
 
+</p>
+</details>
+
+<details><summary>World Tallest Towers Mapping</summary>
+<p>
+
+```` JSON
+{
+  "properties": {
+    "buildingName": {
+      "type": "text",
+      "fields": {
+          "keyword": { 
+            "type":  "keyword"
+          }
+        } 
+    },
+    "city": {
+      "type": "text",
+      "fields": {
+          "keyword": { 
+            "type":  "keyword"
+          }
+        } 
+    },
+    "country": {
+      "type": "text",
+      "fields": {
+          "keyword": { 
+            "type":  "keyword"
+          }
+        } 
+    },
+    "floors": {
+      "type": "long"
+    },
+    "heightInFeet": {
+      "type": "long"
+    },
+    "heightInMetres": {
+      "type": "double"
+    },
+    "rank": {
+      "type": "long"
+    },
+    "yearBuilt": {
+        "type":   "date",
+        "format": "yyyy"
+    }
+  }
+}
+````
 </p>
 </details>
 
 
 
+### Lesson 3. Simple Map Visualistions 
+
+[Lesson 3. Video](https://www.youtube.com/embed/ps_tO2Tuwew)
+
+<details><summary>Objectives</summary>
+<p>
+
+- Load data into elasticsearch through kibana.
+- Create Map Visualisations from Discover Tab.
+- Select different map visualisation options and layers
 
 
-<details><summary>Top Sellings Books Data Mapping</summary>
+</p>
+</details>
+
+<details><summary>Steps</summary>
+<p>
+
+- Download dataset to your computer - ```2-fastest-humans-over-100m.ndjson``` file from the datasets folder in this repo. 
+- Login to Kibana and click the ```Upload a file``` link on the home page. 
+- Upload dataset into Kibana. The wizard will guide you through creating the ```mapping``` and ```data view``` (replace the default mapping with mapping provided below). 
+- Open the dataset in the discover tab - select the  - select raceLocation field from the left hand table and click Visualise. Because it is a geo point field it will open the maps visualisation app. 
+- Select different map visualisation options. I.e. 
+      - Document Geo Points
+      - Heat Maps
+      - Clusters and Grids  
+- Hide / Unhide Layers  
+- Add timeslider
+
+</p>
+</details>
+
+<details><summary>Faster Runners Over 100m Mapping</summary>
 <p>
 
 ```` JSON
@@ -228,7 +310,89 @@ Steps :
 
 
 
+### Lesson 3. Simple Dashboard 
 
+[Lesson 3. Video](https://www.youtube.com/embed/ps_tO2Tuwew)
+
+<details><summary>Objectives</summary>
+<p>
+
+- Load data into elasticsearch through kibana.
+- Create Visualisations from Discover Tab (using ```lens```)
+- Create Visualisations manually (using ```lens```)
+- Create Visualisations manually (using ```classic``` method)
+
+</p>
+</details>
+
+<details><summary>Steps</summary>
+<p>
+
+- Download dataset to your computer - ```2-fastest-humans-over-100m.ndjson``` file from the datasets folder in this repo. 
+- Login to Kibana and click the ```Upload a file``` link on the home page. 
+- Upload dataset into Kibana. The wizard will guide you through creating the ```mapping``` and ```data view``` (replace the default mapping with mapping provided below). 
+- Open the dataset in the discover tab - select fields on the left to automatically create visuslisations in ```lens```. Note ```lens``` allows you to change the chart type and index at any point during the creation of the visualization. 
+
+</p>
+</details>
+
+<details><summary>Top Sellings Books Data Mapping</summary>
+<p>
+
+```` JSON
+{
+  "properties": {
+    "athlete": {
+      "type": "text",
+      "fields": {
+          "keyword": { 
+            "type":  "keyword"
+          }
+        } 
+    },
+    "date": {
+      "type": "date",
+      "format": "iso8601"
+    },
+    "manOrWoman": {
+      "type": "keyword"
+    },
+    "raceLocation": {
+      "type": "geo_point"
+    },
+    "raceLocationName": {
+      "type": "text",
+      "fields": {
+          "keyword": { 
+            "type":  "keyword"
+          }
+        } 
+    },
+    "rank": {
+      "type": "long"
+    },
+    "runnerNation": {
+      "type": "text",
+      "fields": {
+          "keyword": { 
+            "type":  "keyword"
+          }
+        } 
+    },
+    "runnerNationLocation": {
+      "type": "geo_point"
+    },
+    "time": {
+      "type": "double"
+    },
+    "wind": {
+      "type": "double"
+    }
+  }
+}
+````
+</p>
+</details>
 
 
 
