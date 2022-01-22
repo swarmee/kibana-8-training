@@ -384,7 +384,8 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
 <details><summary>Screenshot</summary>
 <p>
 
-[![Screenshot](./images/4 - highest-grossing-animated-films.png)](./images/4 - highest-grossing-animated-films.png)
+<img src="./images/4 - highest-grossing-animated-films.png" alt="Screenshot">
+
 </p>
 </details>
 
