@@ -160,7 +160,11 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
 - Download dataset to your computer - ```2 - world-tallest-towers.ndjson``` file from the datasets folder in this repo. 
 - Login to Kibana and click the ```Upload a file``` link on the home page. 
 - Upload dataset into Kibana. The wizard will guide you through creating the ```mapping``` and ```data view``` (replace the default mapping with mapping provided below). 
-- Open the dataset in the discover tab - select the ```city.keyword``` fields on the left to automatically create visualisation in ```lens```. Note ```lens``` allows you to change the chart type and index at any point during the creation of the visualisation. 
+- Open the dataset in the discover tab - select the ```city.keyword``` fields on the left to automatically create visualisation in ```lens```. Note ```lens``` allows you to change the chart type and index at any point during the creation of the visualisation. Create the following charts:
+    - Bar Horizontal Country by Count.
+    - Bar Horizontal Country by Max Height.    
+    - Bar Vertical Stacked Height vs Records by country.
+
 - Create a Visualisations manually using ```lens``` and the ```classic``` method. 
 
 </p>
@@ -331,40 +335,32 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
 <details><summary>Steps</summary>
 <p>
 
-- Download dataset to your computer - ```2-fastest-humans-over-100m.ndjson``` file from the datasets folder in this repo. 
+- Download dataset to your computer - ```4 - highest-grossing-animated-films.ndjson``` file from the datasets folder in this repo. 
 - Login to Kibana and click the ```Upload a file``` link on the home page. 
-- Upload dataset into Kibana. The wizard will guide you through creating the ```mapping``` and ```data view``` (replace the default mapping with mapping provided below). 
+- Upload dataset into Kibana. The wizard will guide you through loading the data into elasticsearch. Please use the mapping provided below. And select not to create the data view automatically - will create it manually after. 
+- Now create the data view, selecting ```yearReleased``` as the time field. Change the display of ;
+    - yearReleased to ```YYYY```, and
+    - grossRevenue to ```$0,0```.
+- 
+
+ the ```mapping``` and ```data view``` (replace the default mapping with mapping provided below). 
 - Open the dataset in the discover tab - select fields on the left to automatically create visuslisations in ```lens```. Note ```lens``` allows you to change the chart type and index at any point during the creation of the visualization. 
 
 </p>
 </details>
 
-<details><summary>Top Sellings Books Data Mapping</summary>
+<details><summary>Highest Grossing Animated Movies</summary>
 <p>
 
 ```` JSON
 {
   "properties": {
-    "athlete": {
+    "grossRevenue": {
+      "type": "long"
+    },
+    "movieTitle": {
       "type": "text",
-      "fields": {
-          "keyword": { 
-            "type":  "keyword"
-          }
-        } 
-    },
-    "date": {
-      "type": "date",
-      "format": "iso8601"
-    },
-    "manOrWoman": {
-      "type": "keyword"
-    },
-    "raceLocation": {
-      "type": "geo_point"
-    },
-    "raceLocationName": {
-      "type": "text",
+      "fielddata": "true",
       "fields": {
           "keyword": { 
             "type":  "keyword"
@@ -374,22 +370,9 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
     "rank": {
       "type": "long"
     },
-    "runnerNation": {
-      "type": "text",
-      "fields": {
-          "keyword": { 
-            "type":  "keyword"
-          }
-        } 
-    },
-    "runnerNationLocation": {
-      "type": "geo_point"
-    },
-    "time": {
-      "type": "double"
-    },
-    "wind": {
-      "type": "double"
+    "yearReleased": {
+        "type":   "date",
+        "format": "yyyy"
     }
   }
 }
@@ -398,7 +381,35 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
 </details>
 
 
+<details><summary>Screenshot</summary>
+<p>
 
+[![Screenshot](./images/4 - highest-grossing-animated-films.png)](./images/4 - highest-grossing-animated-films.png)
+</p>
+</details>
+
+<details><summary>Source Data Script</summary>
+<p>
+
+```` python
+import pandas as pd
+import json
+
+df = pd.read_html('https://en.wikipedia.org/wiki/List_of_highest-grossing_animated_films')[0]  ### Download first table on wiki page
+
+df =df.drop(['Reference(s)'], axis=1) ### remove reference column
+df["Worldwide gross"] = df["Worldwide gross"].replace('[\$\,\.]',"",regex=True).astype(int)  ### convert amount string to float
+df['Rank'] = df['Rank'].str.replace(r"\[.*\]","")  ### remove square brackets
+df['Title'] = df['Title'].str.replace(r"\[.*\]","")
+df.columns = ['rank', 'movieTitle', 'grossRevenue', 'yearReleased']  ### rename columns
+df = df.to_dict('records')
+
+for record in df:
+    print(json.dumps(record))
+````
+
+</p>
+</details>
 
 
 
