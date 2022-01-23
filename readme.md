@@ -54,6 +54,7 @@ To be fully prepared for the Elastic Certified Analyst exam, candidates should b
 
 You will need an Elasticsearch and Kibana instance to run through this training. I have written up some instructions on how to set one up [here](https://www.swarmee.net/swagger%204%20es/elasticsearch-cloud-instance-setup/)
 
+***
 ### Lesson 1. Kibana Data View and Discover Tab
 
 [Lesson 1. Video](https://youtu.be/3Rh6gBkuyNQ)
@@ -135,7 +136,7 @@ Steps :
 </p>
 </details>
 
-
+***
 ### Lesson 2. Simple Visualistions (lens and classic methods)
 
 [Lesson 2. Video](https://www.youtube.com/embed/ps_tO2Tuwew)
@@ -223,8 +224,8 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
 </details>
 
 
-
-### Lesson 3. Simple Map Visualistions 
+***
+### Lesson 3. Simple Dashboard #1
 
 [Lesson 3. Video](https://www.youtube.com/embed/ps_tO2Tuwew)
 
@@ -264,6 +265,15 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
   "properties": {
     "athlete": {
       "type": "text",
+      "fielddata": "true",
+      "fields": {
+          "keyword": { 
+            "type":  "keyword"
+          }
+        } 
+    },
+    "athleteNation": {
+      "type": "text",
       "fields": {
           "keyword": { 
             "type":  "keyword"
@@ -274,33 +284,19 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
       "type": "date",
       "format": "iso8601"
     },
-    "manOrWoman": {
+    "location": {
+      "type": "text",
+      "fields": {
+          "keyword": { 
+            "type":  "keyword"
+          }
+        } 
+    },
+    "manWoman": {
       "type": "keyword"
     },
-    "raceLocation": {
-      "type": "geo_point"
-    },
-    "raceLocationName": {
-      "type": "text",
-      "fields": {
-          "keyword": { 
-            "type":  "keyword"
-          }
-        } 
-    },
-    "rank": {
+    "performance": {
       "type": "long"
-    },
-    "runnerNation": {
-      "type": "text",
-      "fields": {
-          "keyword": { 
-            "type":  "keyword"
-          }
-        } 
-    },
-    "runnerNationLocation": {
-      "type": "geo_point"
     },
     "time": {
       "type": "double"
@@ -316,8 +312,114 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
 
 
 
+<details><summary>Source Data Script</summary>
+<p>
 
-### Lesson 4. Simple Dashboard 
+```` python
+#### MEN
+import pandas as pd
+import json
+
+
+def fiddle_with_data(Athlete,Nation ):
+  if Athlete.startswith('Blake'):
+    return 'Yohan Blake', 'Jamaica'
+  if Athlete.startswith('Bolt'):
+    return 'Usain Bolt', 'Jamaica'    
+  if Athlete.startswith('Gay'):
+    return 'Tyson Gay', 'United States'   
+  if Athlete.startswith('Gatlin'):
+    return 'Justin Gatlin', 'United States'   
+  if Athlete.startswith('Powell'):
+    return 'Asafa Powell', 'Jamaica'   
+  if Athlete.startswith('Bromell'):
+    return 'Trayvon Bromell', 'United States'   
+  if Athlete.startswith('Bolt'):
+    return 'Usain Bolt', 'Jamaica'                       
+  return Athlete, Nation
+
+
+
+def wind_fiddle(wind):
+  if wind.startswith('+'):
+    return wind[1:]
+  elif wind.startswith('−') or wind.startswith('−'):
+    return '-' + wind[1:]
+  else:
+    return '0.0'
+
+df = pd.read_html('https://en.wikipedia.org/wiki/100_metres')[2]
+df["Date"]= pd.to_datetime(df["Date"])
+df =df.drop(['Ref', 'Ath.#', "Perf.#"], axis=1)
+df['Time (s)'] = df['Time (s)'].str.replace(r"\[.*\]","") 
+
+df['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
+
+df['Wind (m/s)'] = df['Wind (m/s)'].apply(lambda x: wind_fiddle(x))
+
+df[['Athlete', 'Nation']] = df.apply(lambda x: fiddle_with_data(x['Athlete'],x['Nation']),axis=1, result_type="expand")
+
+df['performance'] = df.index
+df.columns = ['time', 'wind', 'athlete', 'athleteNation', 'date', 'location', 'performance']
+df['manWoman'] = 'man'
+df = df.to_dict('records')
+
+for record in df:
+    print(json.dumps(record))
+
+### WOMEN
+import pandas as pd
+import json
+
+
+def fiddle_with_data(Athlete,Nation ):
+  if Athlete.startswith('Griffith-Joyner'):
+    return 'Griffith-Joyner', 'United States' 
+  if Athlete.startswith('Thompson-Herah'):
+    return 'Elaine Thompson-Herah', 'Jamaica'    
+  if Athlete.startswith('Fraser-Pryce'):
+    return 'Shelly-Ann Fraser-Pryce', 'Jamaica'   
+  if Athlete.startswith('Jeter'):
+    return 'Carmelita Jeter', 'United States'   
+  if Athlete.startswith('Jones'):
+    return 'Marion Jones', 'United States'                       
+  return Athlete, Nation
+
+def wind_fiddle(wind):
+  if wind.startswith('+'):
+    return wind[1:]
+  elif wind.startswith('−') or wind.startswith('−'):
+    return '-' + wind[1:]
+  else:
+    return '0.0'
+
+df = pd.read_html('https://en.wikipedia.org/wiki/100_metres')[3]
+df["Date"]= pd.to_datetime(df["Date"])
+df =df.drop(['Ref', 'Ath.#', "Perf.#"], axis=1)
+df['Time (s)'] = df['Time (s)'].str.replace(r"\[.*\]","") 
+
+df['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
+
+df['Wind (m/s)'] = df['Wind (m/s)'].apply(lambda x: wind_fiddle(x))
+
+df[['Athlete', 'Nation']] = df.apply(lambda x: fiddle_with_data(x['Athlete'],x['Nation']),axis=1, result_type="expand")
+
+df['performance'] = df.index
+df.columns = ['time', 'wind', 'athlete', 'athleteNation', 'date', 'location', 'performance']
+df['manWoman'] = 'woman'
+df = df.to_dict('records')
+
+for record in df:
+    print(json.dumps(record))
+
+````    
+
+</p>
+</details>
+
+
+***
+### Lesson 4. Simple Dashboard #2
 
 [Lesson 4. Video](https://www.youtube.com/embed/ps_tO2Tuwew)
 
@@ -331,6 +433,15 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
 
 </p>
 </details>
+
+<details><summary>Output Screenshot</summary>
+<p>
+
+<img src="./images/4 - highest-grossing-animated-films.png" alt="Screenshot">
+
+</p>
+</details>
+
 
 <details><summary>Steps</summary>
 <p>
@@ -349,7 +460,7 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
 </p>
 </details>
 
-<details><summary>Highest Grossing Animated Movies</summary>
+<details><summary>Highest Grossing Animated Movies Mapping</summary>
 <p>
 
 ```` JSON
@@ -380,14 +491,6 @@ The ```lens``` visualisation approach - allows you to change the chart type and 
 </p>
 </details>
 
-
-<details><summary>Screenshot</summary>
-<p>
-
-<img src="./images/4 - highest-grossing-animated-films.png" alt="Screenshot">
-
-</p>
-</details>
 
 <details><summary>Source Data Script</summary>
 <p>
