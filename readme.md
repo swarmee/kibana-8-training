@@ -531,14 +531,13 @@ __Video Run Through__: [youtube link](https://www.youtube.com/embed/ps_tO2Tuwew)
 - Download dataset to your computer - `4 - highest-grossing-animated-films.ndjson` file from the datasets folder in this repo.
 - Login to Kibana and click the `Upload a file` link on the home page.
 - Upload dataset into Kibana. The wizard will guide you through loading the data into elasticsearch. Please use the mapping provided below. And select not to create the data view automatically - will create it manually after.
-- Now create the data view, selecting `yearReleased` as the time field. Change the display of ;
+- Once the data is loaded we now create the data view manually, selecting `yearReleased` as the time field. 
+- We now tweak the dataview to change the display of ;
   - yearReleased to `YYYY`, and
   - grossRevenue to `$0,0`.
--
+- Open the dataset in the discover tab - select fields on the left to create a list view presentation of the data. 
+- Now create a dashboard and add in 4 visualisations and the list view of the data (saved in the previous step).
 
-the `mapping` and `data view` (replace the default mapping with mapping provided below).
-
-- Open the dataset in the discover tab - select fields on the left to automatically create visuslisations in `lens`. Note `lens` allows you to change the chart type and index at any point during the creation of the visualization.
 
 </p>
 </details>
