@@ -10,7 +10,7 @@ services:
       - discovery.seed_hosts=swarmee01
       - cluster.initial_master_nodes=swarmee01
       - xpack.security.enabled=false
-      - xpack.eql.enabled=false
+#      - xpack.eql.enabled=false
       - xpack.idp.enabled=false
       - xpack.ccr.enabled=false
       - xpack.graph.enabled=true
@@ -18,7 +18,7 @@ services:
 #      - xpack.monitoring.enabled=false
       - xpack.license.self_generated.type=trial
       - xpack.ml.enabled=true
-      - xpack.monitoring.collection.enabled=false
+#      - xpack.monitoring.collection.enabled=false
       - http.cors.enabled=true      
       - http.cors.allow-credentials=true      
       - http.cors.allow-origin="*"

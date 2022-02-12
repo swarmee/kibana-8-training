@@ -63,7 +63,7 @@ You will need an Elasticsearch and Kibana instance to run through this training.
 ### Lesson 1. Kibana Data View and Discover Tab
 __Dataset : Top Selling Books__
 
-__Video Run Through__: [link](https://youtu.be/3Rh6gBkuyNQ)
+__Video Run Through__: [youtube link](https://youtu.be/3Rh6gBkuyNQ)
 
 <details><summary>Objectives</summary>
 <p>
@@ -148,7 +148,7 @@ Steps :
 ### Lesson 2. Simple Visualistions (lens and classic methods)
 __Dataset : World's Tallest Towers__
 
-__Video Run Through__: [link](https://www.youtube.com/embed/ps_tO2Tuwew)
+__Video Run Through__: [youtube link](https://www.youtube.com/embed/ps_tO2Tuwew)
 
 <details><summary>Objectives</summary>
 <p>
@@ -282,7 +282,7 @@ for record in df:
 ### Lesson 3. Simple Map Visualistions
 __Dataset: Fastest 100m Runners__
 
-__Video Run Through__: [link](https://www.youtube.com/embed/ps_tO2Tuwew)
+__Video Run Through__: [youtube link](https://www.youtube.com/embed/ps_tO2Tuwew)
 
 <details><summary>Objectives</summary>
 <p>
@@ -504,7 +504,7 @@ for record in df:
 ### Lesson 4. Simple Dashboard
 __Dataset: Highest Grossing Animated Films__
 
-__Video Run Through__: [link](https://www.youtube.com/embed/ps_tO2Tuwew)
+__Video Run Through__: [youtube link](https://www.youtube.com/embed/ps_tO2Tuwew)
 
 <details><summary>Objectives</summary>
 <p>
