@@ -38,7 +38,7 @@ services:
       - swarmee-net
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:8.0.0-rc1
+    image: docker.elastic.co/kibana/kibana:8.0.0
     container_name: kb8    
     environment:
       ELASTICSEARCH_HOSTS: '["http://es8:9200"]'
