@@ -56,7 +56,7 @@ To be fully prepared for the Elastic Certified Analyst exam, candidates should b
 
 #### Prerequisites
 
-You will need an Elasticsearch and Kibana instance to run through this training. I have written up some instructions on how to set one up [here](https://www.swarmee.net/swagger%204%20es/elasticsearch-cloud-instance-setup/)
+You will need an Elasticsearch and Kibana instance to run through this training. I have written up some instructions on how to set up a cloud instance [here](https://www.swarmee.net/swagger%204%20es/elasticsearch-cloud-instance-setup/). Alternatively there is a ```docker-compose.yml``` file within this repo that you can use to run a elasticsearch and kibana instance locally. 
 
 ---
 
@@ -153,7 +153,7 @@ __Video Run Through__: [youtube link](https://www.youtube.com/embed/ps_tO2Tuwew)
 <details><summary>Objectives</summary>
 <p>
 
-- Load data into elasticsearch through kibana.
+- Load data into elasticsearch through kibana - 80 documents.
 - Create Visualisations from Discover Tab (using `lens`)
 - Create Visualisations manually (using `lens`)
 - Create Visualisations manually (using `classic` method)
@@ -169,8 +169,9 @@ The `lens` visualisation approach - allows you to change the chart type and inde
 
 - Download dataset to your computer - `2 - world-tallest-towers.ndjson` file from the datasets folder in this repo.
 - Login to Kibana and click the `Upload a file` link on the home page.
-- Upload dataset into Kibana. The wizard will guide you through creating the `mapping` and `data view` (replace the default mapping with mapping provided below).
-- Open the dataset in the discover tab - select the `city.keyword` fields on the left to automatically create visualisation in `lens`. Note `lens` allows you to change the chart type and index at any point during the creation of the visualisation. Create the following charts:
+- Upload dataset into Kibana. The wizard will guide you through loading the data - replace the generated `mapping` with ht below ```mapping```. And untick the create data view (we will do it manually in the next step). 
+- Once the data has been loaded - create the data view manually setting the time field as `yearBuilt` - and set the format for `yearBuilt` to __YYYY__.
+- Open the dataset in the discover tab - switch to the new `Field Statistics` view and then __action__ the `cityName.keyword` field to create a create visualisation in `lens`. Note `lens` allows you to change the chart type and index at any point during the creation of the visualisation. Create the following charts:
 
   - Bar Horizontal Country by Count.
   - Bar Horizontal Country by Max Height.
