@@ -1,7 +1,7 @@
 version: '3.8'
 services: 
   es8:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.0.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.2.0
     container_name: es8
     restart: always
     environment:
@@ -24,7 +24,7 @@ services:
       - http.cors.allow-origin="*"
       - http.cors.allow-headers=" X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization"
       - bootstrap.memory_lock=true # along with the memlock settings below, disables swapping
-      - "ES_JAVA_OPTS=-Xms2024m -Xmx2024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
+      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
     ulimits:
       memlock:
         soft: -1
@@ -38,7 +38,7 @@ services:
       - swarmee-net
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:8.0.0
+    image: docker.elastic.co/kibana/kibana:8.2.0
     container_name: kb8    
     environment:
       ELASTICSEARCH_HOSTS: '["http://es8:9200"]'
