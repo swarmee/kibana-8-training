@@ -148,7 +148,8 @@ Steps :
 ### Lesson 2. Simple Visualistions (lens and classic methods)
 __Dataset : World's Tallest Towers__
 
-__Video Run Through__: [youtube link](https://www.youtube.com/embed/ps_tO2Tuwew)
+__Video Run Through__: [youtube link](https://www.youtube.com/embed/iDJL-lGuggs)
+
 
 <details><summary>Objectives</summary>
 <p>
