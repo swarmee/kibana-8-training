@@ -289,7 +289,7 @@ __Video Run Through__: [youtube link](https://www.youtube.com/embed/ps_tO2Tuwew)
 <details><summary>Objectives</summary>
 <p>
 
-- Load data into elasticsearch through kibana.
+- Load 102 documents into elasticsearch through kibana.
 - Create Map Visualisations from Discover Tab.
 - Select different map visualisation options and layers
 
@@ -314,8 +314,8 @@ __Video Run Through__: [youtube link](https://www.youtube.com/embed/ps_tO2Tuwew)
   - Deselect the automatic creation of the data view (it needs to be created manually afterwards - so a date/time field can be selected)
 - Once the dataview is created then set the display format for the date field to be ```YYYY-MM-DD```
 - Once the data is successfully uploaded manually create the data view selecting `date` as the datetime field.
-- Open the dataset in the discover tab - select the - select `athleteCountryGeoPoint` field from the left hand table and click Visualise. Because it is a geo point field it will open the maps visualisation app. By default a document Geo Point Map. 
-- Select different map visualisation options. I.e. -  Choropleth, Clusters and Grids and Heat Maps. 
+- Open the dataset in the discover tab - select the - select `athleteCountryGeoPoint` field from the left hand table, go to field statistics and click action. Because it is a geo point field it will open the maps visualisation app. By default a document Geo Point Map. 
+- Select different map visualisation options. I.e. -  Choropleth (World Countries EMS boundaries) and Heat Maps. 
 - Hide / Unhide Layers
 - Add timeslider
 
