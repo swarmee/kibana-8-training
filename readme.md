@@ -507,7 +507,7 @@ for record in df:
 ### Lesson 4. Simple Dashboard
 __Dataset: Highest Grossing Animated Films__
 
-__Video Run Through__: [youtube link](https://www.youtube.com/embed/ps_tO2Tuwew)
+__Video Run Through__: [youtube link](https://www.youtube.com/embed/g2TMoc2UOv0)
 
 <details><summary>Objectives</summary>
 <p>
