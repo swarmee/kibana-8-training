@@ -170,7 +170,7 @@ The `lens` visualisation approach - allows you to change the chart type and inde
 
 - Download dataset to your computer - `2 - world-tallest-towers.ndjson` file from the datasets folder in this repo.
 - Login to Kibana and click the `Upload a file` link on the home page.
-- Upload dataset into Kibana. The wizard will guide you through loading the data - replace the generated `mapping` with ht below ```mapping```. And untick the create data view (we will do it manually in the next step). 
+- Upload dataset into Kibana. The wizard will guide you through loading the data - replace the generated `mapping` with the below ```mapping```. And untick the create data view (we will do it manually in the next step). 
 - Once the data has been loaded - create the data view manually setting the time field as `yearBuilt` - and set the format for `yearBuilt` to __YYYY__.
 - Open the dataset in the discover tab - switch to the new `Field Statistics` view and then __action__ the `cityName.keyword` field to create a create visualisation in `lens`. Note `lens` allows you to change the chart type and index at any point during the creation of the visualisation. Create the following charts:
 
