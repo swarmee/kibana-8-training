@@ -513,9 +513,9 @@ __Video Run Through__: [youtube link](https://www.youtube.com/embed/ps_tO2Tuwew)
 <p>
 
 - Load 50 records into elasticsearch through kibana.
-- Create Visualisations from Discover Tab (using `lens`)
-- Create Visualisations manually (using `lens`)
-- Create Visualisations manually (using `classic` method)
+- Create a saved search list
+- Create 4 Visualisations 
+- Pull them all together into a Dashboard
 
 </p>
 </details>
