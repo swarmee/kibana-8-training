@@ -284,7 +284,7 @@ for record in df:
 ### Lesson 3. Simple Map Visualistions
 __Dataset: Fastest 100m Runners__
 
-__Video Run Through__: [youtube link](https://www.youtube.com/embed/ps_tO2Tuwew)
+__Video Run Through__: [youtube link](https://www.youtube.com/embed/YPH_-hBhiCU)
 
 <details><summary>Objectives</summary>
 <p>
@@ -512,7 +512,7 @@ __Video Run Through__: [youtube link](https://www.youtube.com/embed/ps_tO2Tuwew)
 <details><summary>Objectives</summary>
 <p>
 
-- Load data into elasticsearch through kibana.
+- Load 50 records into elasticsearch through kibana.
 - Create Visualisations from Discover Tab (using `lens`)
 - Create Visualisations manually (using `lens`)
 - Create Visualisations manually (using `classic` method)
